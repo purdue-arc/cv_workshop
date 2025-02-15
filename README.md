@@ -70,3 +70,10 @@ You will be filling in code inside of `snake/hand_run.py` based on how `opencv` 
 ```bash
 python snake/hand_run.py
 ```
+
+### SOLUTION SCRIPT
+
+IF you are on this branch, the `snake/hand_run_solution.py` script should run the expected output for `hand_run`
+```bash
+python snake/hand_run_solution.py
+```
