@@ -2,29 +2,46 @@ import cv2
 import numpy as np
 
 def main():
-    # Load an image
-    # Replace 'path/to/image.jpg' with a valid image path
-    img = cv2.imread('path/to/image.jpg', cv2.IMREAD_GRAYSCALE)
-    if img is None:
-        print("Error: Image not found or unable to open.")
+    # Open the default camera (device index 0).
+    cap = cv2.VideoCapture(0)
+
+    if not cap.isOpened():
+        print("Error: Could not open camera.")
         return
 
-    # Apply Gaussian blur to reduce noise
-    blurred = cv2.GaussianBlur(img, (5, 5), 0)
+    print("Press 'q' to quit.")
 
-    # Perform Canny edge detection
-    edges = cv2.Canny(blurred, 100, 200)
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            print("Error: Failed to read frame from camera.")
+            break
 
-    # Display original and edges
-    cv2.imshow('Original (Grayscale)', img)
-    cv2.imshow('Edges', edges)
+        # Convert the frame to grayscale.
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    cv2.waitKey(0)
+        # Apply Gaussian blur to reduce noise.
+        blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+
+        # Perform Canny edge detection.
+        edges = cv2.Canny(blurred, 100, 200)
+        
+        # Experiment with Parameters: Adjust blur kernels 
+        # ((5, 5), (7, 7), etc.) and Canny thresholds 
+        # (e.g., (50, 150), (100, 200)) to see how they 
+        # affect the edge detection results.
+        
+        # Display the original (grayscale) and the edges.
+        cv2.imshow('Original (Grayscale)', gray)
+        cv2.imshow('Edges', edges)
+
+        # Press 'q' to quit.
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    # Release the camera resource and close windows.
+    cap.release()
     cv2.destroyAllWindows()
-
-    # Save the resulting edge-detected image
-    cv2.imwrite('edges_output.jpg', edges)
-    print("Edge detection result saved as edges_output.jpg")
 
 if __name__ == "__main__":
     main()

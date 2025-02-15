@@ -6,6 +6,7 @@ Welcome to the ARC Computer Vision Workshop! This repository contains example sc
 
 1. **Installation**  
    - Clone this repository  
+   - 
    - Install dependencies:
      ```bash
      pip install -r requirements.txt
@@ -29,7 +30,6 @@ Welcome to the ARC Computer Vision Workshop! This repository contains example sc
 
 - **OpenCV Documentation**: [docs.opencv.org](https://docs.opencv.org/)  
 - **Image Processing and Computer Vision Basics**:  
-  - [Stanford CS131 Notes](http://web.stanford.edu/class/cs131/lectures.html)  
   - [OpenCV Tutorials](https://docs.opencv.org/master/d9/df8/tutorial_root.html)
 
 ## Getting Started
@@ -41,9 +41,17 @@ Welcome to the ARC Computer Vision Workshop! This repository contains example sc
    cd cv_workshop
    pip install -r requirements.txt
 3. Run any of the scripts in the `scripts/` folder:
+   This script shows a live grayscale version of your video stream.
    ```bash
    python scripts/basic_opencv.py
    ```
+
+   This script shows a screen containing edge detections from your live video stream.
    ```bash
    python scripts/edge_detection.py
+   ```
+
+   This script shows a simple YOLOv8 Detection running through the ultralytics package. One could also run a more general, pre-trained YOLOv8 with the `inference` package: [YOLOv8 Website instructions](https://yolov8.com/)
+   ```bash
+   python scripts/yolov8_detection.py
    ```
