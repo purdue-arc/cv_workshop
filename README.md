@@ -51,7 +51,22 @@ Welcome to the ARC Computer Vision Workshop! This repository contains example sc
    python scripts/edge_detection.py
    ```
 
-   This script shows a simple YOLOv8 Detection running through the ultralytics package. One could also run a more general, pre-trained YOLOv8 with the `inference` package: [YOLOv8 Website instructions](https://yolov8.com/)
+   This script shows a simple YOLOv8 Detection running through the `ultralytics` package. You could also run a more general, pre-trained YOLOv8 with the `inference` package: [YOLOv8 Website instructions](https://yolov8.com/)
    ```bash
    python scripts/yolov8_detection.py
    ```
+
+## Mini-Project: Hand Snake!!
+
+You will be writing a snake game uses your hand as a controller to a camera to move it around to move a snake on screen to control it. The `mediapipe` package will be used for this. 
+
+To get an idea of how the snake game works generally, using your keyaboard's `w`, `a`, `s` and `d` keys for up, left, down and right movements respectively, run this from the `cv_workshop` directory.
+```bash
+python snake/keyboard_run.py
+```
+
+You will be filling in code inside of `snake/hand_run.py` based on how `opencv` was used so far to get it running. Everything is commented so ONCE YOU ARE DONE, the following should work.
+
+```bash
+python snake/hand_run.py
+```
